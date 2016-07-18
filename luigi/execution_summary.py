@@ -57,6 +57,12 @@ def _partition_tasks(worker):
     set_tasks["unknown_reason"] = set()
     return set_tasks
 
+def _root_task(worker):
+    """
+    Return the first task scheduled by the worker, corresponding to the root task
+    """
+    return worker._add_task_history[0][0]
+
 
 def _populate_unknown_statuses(set_tasks):
     """
